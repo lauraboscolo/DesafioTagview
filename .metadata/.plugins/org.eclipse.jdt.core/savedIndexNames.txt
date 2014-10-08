@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Users\Laura\Documents\DesafioTagview\.metadata\.plugins\org.eclipse.jdt.core
+1401337927.index
+2334690433.index
+1284074322.index
+2817213410.index

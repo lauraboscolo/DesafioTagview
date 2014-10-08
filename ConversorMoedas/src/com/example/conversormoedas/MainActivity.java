@@ -30,6 +30,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	private Button btnConverter;
     private Handler hdrValorConv = new Handler();
 	private ArrayAdapter<CharSequence> adapter;
+	private String paisMoedaConversao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,13 +84,15 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 				double convertido = 0.0;
 				try {
 					DefaultHttpClient httpClient = new DefaultHttpClient();
-					HttpGet get = new HttpGet(gerarURL(valor));
+					HttpGet get = new HttpGet(criarString(valor));
 
 					HttpResponse httpResponse = httpClient.execute(get);
 					String json = EntityUtils.toString(httpResponse.getEntity());
 
 					JSONObject valorJSon = new JSONObject(json);
+
 					convertido = (Double)valorJSon.get("v");
+					
 				} catch (MalformedURLException e) {
 					Log.e("ERRO", "MalformedURLException");
 					e.printStackTrace();
@@ -101,9 +104,9 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 					e.printStackTrace();
 				}
 
-				DecimalFormat formatDecimal = new DecimalFormat("0.00"); 
+				DecimalFormat formatacaoDuasCasas = new DecimalFormat("0.00"); 
 
-				String novoTextoValorConvertido = formatDecimal.format(convertido);
+				final String novoTextoValorConvertido = formatacaoDuasCasas.format(convertido);
 
 				hdrValorConv.post(new Runnable() {
 					@Override

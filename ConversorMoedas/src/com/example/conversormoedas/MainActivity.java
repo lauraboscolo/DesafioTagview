@@ -89,9 +89,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 					String json = EntityUtils.toString(httpResponse.getEntity());
 
 					JSONObject valorJSon = new JSONObject(json);
-
 					convertido = (Double)valorJSon.get("v");
-					
 				} catch (MalformedURLException e) {
 					Log.e("ERRO", "MalformedURLException");
 					e.printStackTrace();
@@ -103,9 +101,9 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 					e.printStackTrace();
 				}
 
-				DecimalFormat formatacaoDuasCasas = new DecimalFormat("0.00"); 
+				DecimalFormat formatDecimal = new DecimalFormat("0.00"); 
 
-				final String novoTextoValorConvertido = formatacaoDuasCasas.format(convertido);
+				String novoTextoValorConvertido = formatDecimal.format(convertido);
 
 				hdrValorConv.post(new Runnable() {
 					@Override

@@ -27,7 +27,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
     private Spinner moedas;
 	private EditText txValor;
     private TextView tvConvertido;
-	private Button btnConverte;
+	private Button btnConverter;
     private Handler hdrValorConv = new Handler();
 	private ArrayAdapter<CharSequence> adapter;
 
@@ -42,7 +42,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 		moedas.setAdapter(adapter);
 		moedas.setOnItemSelectedListener(this);
 		txValor = (EditText)findViewById(R.id.edValor);
-		btnConverter = (Button)findViewById(R.id.btnConverte);
+		btnConverter = (Button)findViewById(R.id.btnConverter);
 		tvConvertido = (TextView)findViewById(R.id.txtConvertido);
 	}
 
